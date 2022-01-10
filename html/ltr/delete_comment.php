@@ -8,7 +8,6 @@ $delete = "DELETE FROM comments
 
 
 		mysqli_query($conn,$delete);
-		$_SESSION['comment_deleted']= "1";
 		header('Location: comments.php');
 
 		exit();

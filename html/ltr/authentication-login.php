@@ -49,6 +49,11 @@ session_start();
                     </div>
                     <!-- Form -->
                     <?PHP
+                    if (isset($_SESSION['user_created']))
+                    {
+        							echo '<p style="color:#ADFF2F">User created with success!</p>';
+        							unset($_SESSION["user_created"]);
+        						}
         						if (isset($_SESSION['user_nonexistent']))
                     {
         							echo '<p style="color:#900">The user does not exist!</p>';

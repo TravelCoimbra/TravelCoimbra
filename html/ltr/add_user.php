@@ -85,6 +85,13 @@ include ("acess_db.php");
                             <form class="form-horizontal" id="form1" action="insert.php" method="POST">
                                 <div class="card-body">
                                     <h4 class="card-title">User</h4>
+                                    <?php
+                                    if (isset($_SESSION['user_created']))
+                                    {
+                                      echo '<p style="color:#008000">User created!</p>';
+                                      unset($_SESSION["user_created"]);
+                                    }
+                                     ?>
                                     <div class="form-group row">
                                         <label for="fname" class="col-sm-3 text-right control-label col-form-label">Username</label>
                                         <div class="col-sm-9">

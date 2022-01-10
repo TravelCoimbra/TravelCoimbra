@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html dir="ltr">
 
@@ -45,6 +48,18 @@
                         <span class="db"><img src="../../assets/images/logo.png" alt="logo" style="width:100%"/></span>
                     </div>
                     <!-- Form -->
+                    <?php
+                    if (isset($_SESSION['email_exists']))
+                    {
+        							echo '<p style="color:#900">Email already in use!</p>';
+        							unset($_SESSION["email_exists"]);
+        						}
+                    if (isset($_SESSION['user_exists']))
+                    {
+        							echo '<p style="color:#900">Username already in use!</p>';
+        							unset($_SESSION["user_exists"]);
+        						}
+                    ?>
                     <form class="form-horizontal m-t-20" action="register.php" method="POST">
                         <div class="row p-b-30">
                             <div class="col-12">

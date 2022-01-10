@@ -124,6 +124,7 @@ include ("acess_db.php");
 
                                       <?php
                                       echo '<span id="description'.$line['idcomments'].'" style="display:block">'.$line['description'].'</span>';
+                                      if(isset($_SESSION['id_user']) && $_SESSION['user_permission']){
                                       if($line_user['idusers'] == $_SESSION['id_user'] || $_SESSION['user_permission']==1){
                                         echo '<form name="save_comment'.$line['idcomments'].'" id="save_comment'.$line['idcomments'].'" method="post" style="display:none" action="edit_comment.php" enctype="multipart/form-data">';
                                           echo '<textarea id="text_save'.$line['idcomments'].'" name="text_save" value="" style="display:none;width:100%"></textarea>';
@@ -140,6 +141,7 @@ include ("acess_db.php");
                                         echo '<a onclick="delete_comment('.$line['idcomments'].')" class="btn btn-danger btn-sm" style="color:white">Delete</a>';
                                         echo '<input type="text" name="delete_hidden" id="delete_hidden'.$line['idcomments'].'" value="" style="display:none">';
                                       echo "</form>";
+                                      }
                                       }
                                         ?>
                                         <div class="comment-footer">

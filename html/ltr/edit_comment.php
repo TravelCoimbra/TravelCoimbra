@@ -9,7 +9,6 @@ $update = 'UPDATE comments
 
 					echo $update;
 		mysqli_query($conn,$update);
-		$_SESSION['comment_updated']= "1";
 		header('Location: comments.php');
 
 

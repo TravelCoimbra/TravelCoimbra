@@ -72,14 +72,6 @@ include ("acess_db.php");
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
                         <h4 class="page-title">Add a Place</h4>
-                        <div class="ml-auto text-right">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
-                                </ol>
-                            </nav>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -99,6 +91,18 @@ include ("acess_db.php");
                             <form class="form-horizontal" id="form1" action="insert_point.php" method="POST">
                                 <div class="card-body">
                                     <h4 class="card-title">Point of Interest</h4>
+                                    <?php
+                                    if (isset($_SESSION['out_of_bounds']))
+                                    {
+                        							echo '<p style="color:#900">Inserted coordinates are out of bounds!</p>';
+                        							unset($_SESSION["out_of_bounds"]);
+                        						}
+                                    if (isset($_SESSION['point_added']))
+                                    {
+                        							echo '<p style="color:#008000">Point request successfully made!</p>';
+                        							unset($_SESSION["point_added"]);
+                        						}
+                                    ?>
                                     <div class="form-group row">
                                         <label for="fname" class="col-sm-3 text-right control-label col-form-label">Name</label>
                                         <div class="col-sm-9">

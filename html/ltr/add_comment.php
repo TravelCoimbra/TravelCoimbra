@@ -84,7 +84,14 @@ include ("acess_db.php");
                         <div class="card">
                             <form class="form-horizontal" action="insert_comment.php" method="POST">
                                 <div class="card-body">
-                                    <h4 class="card-title">Comment</h4>
+                                    <h4 class="card-title">Post</h4>
+                                    <?php
+                                    if (isset($_SESSION['comment_added']))
+                                    {
+                                      echo '<p style="color:#008000">Post successfully made!</p>';
+                                      unset($_SESSION["comment_added"]);
+                                    }
+                                     ?>
                                     <div class="form-group row">
                                         <label for="fname" class="col-sm-3 text-right control-label col-form-label">Place</label>
                                         <div class="col-sm-9">
@@ -93,7 +100,9 @@ include ("acess_db.php");
                                                 $select = "SELECT
                                                     places.*
                                                   FROM
-                                                    places" ;
+                                                    places
+                                                  WHERE
+                                                    places.approved=1" ;
 
                                             $result = mysqli_query($conn, $select);
 

@@ -84,7 +84,7 @@ include ("acess_db.php");
                               var lat = 40.2016381;
                               var lon = -8.4118816;
                               // initialize map
-                              map = L.map('mapDiv').setView([lat, lon], 12.5);
+                              map = L.map('mapDiv').setView([lat, lon], 14);
                               // set map tiles source
                               L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                               attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
@@ -107,7 +107,7 @@ include ("acess_db.php");
                           $numb_lines = mysqli_num_rows($result);
                           while ($line=mysqli_fetch_array($result))
 							            {
-                            echo '<script> marker = L.marker(['.$line["lat"].','.$line["lon"].']).addTo(map).bindPopup("<b>'.$line["name"].'</b><br><br>'.$line["description"].'"); </script>';
+                            echo '<script> marker = L.marker(['.$line["lat"].','.$line["lon"].']).addTo(map).bindPopup("<b>'.$line["name"].'</b><br>'.$line["website"].'<br>'.$line["description"].'"); </script>';
                           }
 
                           ?>
